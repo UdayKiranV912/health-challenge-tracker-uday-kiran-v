@@ -1,0 +1,20 @@
+<div>
+  <input [(ngModel)]="searchName" placeholder="Search by Name" (input)="searchUsers()" />
+  <input [(ngModel)]="filterType" placeholder="Filter by Workout Type" (input)="filterUsers()" />
+  <table>
+    <tr>
+      <th>User Name</th>
+      <th>Workout Type</th>
+      <th>Minutes</th>
+    </tr>
+    <tr *ngFor="let user of filteredUsers">
+      <td>{{ user.name }}</td>
+      <td *ngFor="let workout of user.workouts">
+        {{ workout.type }}
+      </td>
+      <td *ngFor="let workout of user.workouts">
+        {{ workout.minutes }}
+      </td>
+    </tr>
+  </table>
+</div>
